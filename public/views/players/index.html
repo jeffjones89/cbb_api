@@ -1,6 +1,5 @@
-<div ng-controller = "statsController as statsCtrl">
-  <h1>{{statsCtrl.players.length}}</h1>
-<div class = "players" ng-repeat= "player in statsCtrl.players">
+<div class = "players" ng-controller = "statsController as statsCtrl">
+<div  ng-repeat= "player in statsCtrl.players">
   <player></player>
 </div>
 </div>

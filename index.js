@@ -19,7 +19,7 @@ app.get("/", function(request, response){
   response.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/players", function(req,res){
+app.get("/api/players", function(req,res){
  db.players.find({}, function(err, players){
    if(err) return;
    var response = players;
