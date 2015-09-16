@@ -1,0 +1,9 @@
+
+  [
+    {"name": "Marcus Paige", "school": "North Carolina Tar Heels", "fga": "416", "pts": "534", "fgm": "172",
+  "threePtAtt": "238", "threePtMade": "94", "twoPtMade": "78", "twoPtAtt": "178", "FT": "96", "FTA": "111" },
+
+  {"name": "Brice Johnson", "school": "North Carolina Tar Heels", "fga": "366", "pts": "492", "fgm": "207",  "threePtAtt": "0", "threePtMade": "0", "twoPtMade": "207", "twoPtAtt": "366", "FT": "78", "FTA": "115" },
+
+  {"name": "Justin Jackson", "school": "North Carolina Tar Heels", "fga": "329", "pts": "408", "fgm": "157", "threePtAtt": "92", "threePtMade": "28", "twoPtMade": "129", "twoPtAtt": "237", "FT": "66", "FTA": "93" }
+]
