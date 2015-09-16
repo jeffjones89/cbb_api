@@ -1,8 +1,6 @@
 <div ng-controller = "statsController as statsCtrl">
   <h1>{{statsCtrl.players.length}}</h1>
 <div class = "players" ng-repeat= "player in statsCtrl.players">
-  <h2>{{player.name}}</h2>
-  <h3>{{player.fga}}</h3>
-  <h3>{{player.test}}</h3>
+  <player></player>
 </div>
 </div>

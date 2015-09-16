@@ -6,6 +6,7 @@
     'ngResource',
     'statsControllers',
     'statsRouter',
-    'statsServices'
+    'statsServices',
+    'playerDirectives'
   ]);
 })();
