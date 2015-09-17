@@ -24,7 +24,7 @@ app.get("/api/players", function(req,res){
   Player.find({}, function(err, players){
     if(err) throw err;
     res.json(players);
-  })
+  });
 });
 
 app.get("/api/players/:id", function(req, res){
