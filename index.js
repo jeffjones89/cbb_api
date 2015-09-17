@@ -13,10 +13,7 @@ app.use("/", express.static(path.join(__dirname + "/public")));
 app.use(bodyParser.json());
 
 
-app.set('port', (process.env.PORT || 4000));
-app.listen('port', function(){
-  console.log("app is listening on port 4000")
-});
+
 
 app.get("/", function(request, response){
   response.sendFile(__dirname + "/views/index.html");
@@ -39,4 +36,9 @@ app.get("/api/players/:id", function(req, res){
 app.use(function(req, res, next){
    res.status(404);
    res.json({ error: 'Invalid URL' });
+});
+
+app.set('port', (process.env.PORT || 4000));
+app.listen(app.get('port'), function(){
+  console.log("app is listening on " + app.get('port'));
 });
