@@ -19,12 +19,9 @@
           // index
           updateStats(scope);
         }
-
       }
-
     };
   }
-
 ]);
 function updateStats(directiveScope){
   console.log("2scope.player", directiveScope.player);
