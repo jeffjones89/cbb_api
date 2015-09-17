@@ -27,6 +27,8 @@ app.get("/api/players", function(req,res){
  });
 });
 
+app.put("/players/:id")
+
 app.use(function(req, res, next){
    res.status(404);
    res.json({ error: 'Invalid URL' });
