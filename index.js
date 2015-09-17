@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGOLAB_URI ||'mongodb://localhost:27017/playersdb
 app.use("/", express.static(path.join(__dirname + "/public")));
 
 app.use(bodyParser.json());
-
+mongojs(process.env.MONGOLAB_URI)
 app.listen(4000, function(){
   console.log("app is listening on port 4000")
 });
