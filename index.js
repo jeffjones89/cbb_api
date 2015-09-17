@@ -6,7 +6,7 @@ var path = require('path');
 var playersController = require('./app/controllers/players.js');
 var app = express();
 
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect('mongodb://heroku_xhww8k9r:dm80401pa75ppivfsdk3hlfdba@ds031407.mongolab.com:31407/heroku_xhww8k9r');
 
 app.use("/", express.static(path.join(__dirname + "/public")));
 
