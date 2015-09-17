@@ -3,10 +3,14 @@
     router.config([
       '$routeProvider',
       function($routeProvider){
-      $routeProvider.when("/players", {
+      $routeProvider.
+      when("/players", {
         templateUrl: 'views/players/index.html',
         controller: 'statsController',
         controllerAs: 'statsCtrl'
+      }).
+      when("/players/:id", {
+        templateUrl: 'views/players/show.html'
       });
     }
   ]);

@@ -1,11 +1,12 @@
 var express = require("express");
-var mongojs = require('mongojs');
+var Player = require("./app/models/player")
+var mongoose = require('mongoose');
 var bodyParser = require("body-parser");
 var path = require('path');
-var routes = require('./app/routes.js');
-var db = mongojs('playersdb', ['players'])
 var playersController = require('./app/controllers/players.js');
 var app = express();
+
+mongoose.connect('mongodb://localhost:27017/playersdb');
 
 app.use("/", express.static(path.join(__dirname + "/public")));
 
@@ -20,14 +21,18 @@ app.get("/", function(request, response){
 });
 
 app.get("/api/players", function(req,res){
- db.players.find({}, function(err, players){
-   if(err) return;
-   var response = players;
-   res.json(response);
- });
+  Player.find({}, function(err, players){
+    if(err) throw err;
+    res.json(players);
+  })
 });
 
-app.put("/players/:id")
+app.get("/api/players/:id", function(req, res){
+  Player.findById(req.params.id, function(err, player){
+    if(err) throw err;
+    res.json(player);
+  });
+});
 
 app.use(function(req, res, next){
    res.status(404);
