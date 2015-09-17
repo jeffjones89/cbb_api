@@ -6,7 +6,7 @@ var path = require('path');
 var playersController = require('./app/controllers/players.js');
 var app = express();
 
-mongoose.connect(process.env.MONGOLAB_URI ||'mongodb://localhost:27017/playersdb');
+mongoose.connect(process.env.MONGOLAB_URI);
 
 app.use("/", express.static(path.join(__dirname + "/public")));
 
