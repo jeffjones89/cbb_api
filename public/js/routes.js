@@ -4,7 +4,7 @@
       '$routeProvider',
       function($routeProvider){
       $routeProvider.
-      when("/players", {
+      when("/", {
         templateUrl: 'views/players/index.html',
         controller: 'statsController',
         controllerAs: 'statsCtrl'

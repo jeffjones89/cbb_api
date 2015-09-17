@@ -12,9 +12,6 @@ app.use("/", express.static(path.join(__dirname + "/public")));
 
 app.use(bodyParser.json());
 
-
-
-
 app.get("/", function(request, response){
   response.sendFile(__dirname + "/views/index.html");
 });
@@ -39,6 +36,7 @@ app.use(function(req, res, next){
 });
 
 app.set('port', (process.env.PORT || 4000));
+
 app.listen(app.get('port'), function(){
   console.log("app is listening on " + app.get('port'));
 });
