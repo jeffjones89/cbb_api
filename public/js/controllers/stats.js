@@ -6,4 +6,5 @@
   statsControllers.controller('statsController', ['Player', function(Player){
     this.players = Player.query();
   }]);
+
 })();

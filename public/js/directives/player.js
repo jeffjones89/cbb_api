@@ -6,11 +6,9 @@
       templateUrl: "views/players/_player.html",
       replace: true,
       link: function(scope, element, attributes){
-        console.log("scope.player", scope.player);
 
         // add player for show view
         if($routeParams.id){
-          console.log($routeParams.id);
           Player.get({id:$routeParams.id}).$promise.then(function(player){
             scope.player = player;
             updateStats(scope);
@@ -19,12 +17,20 @@
           // index
           updateStats(scope);
         }
-      }
+        var data = [
+          {TS: scope.player.fga}
+        ]
+        d3.select(element[0].querySelector(".graph")).selectAll('div').
+                              data(data).enter().append("div").
+                              style("width", function(d){
+                                return d * 10 + 'px';
+                              }).
+                              text(function(d){return d.TS;})
+        }
     };
   }
 ]);
 function updateStats(directiveScope){
-  console.log("2scope.player", directiveScope.player);
   var player = directiveScope.player;
   // console.log("2player", player);
   //effective field goal % is a function of three pointers made weighted for the additional point, two pointers made and total field goals attempted
