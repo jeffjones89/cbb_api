@@ -12,12 +12,12 @@ var app = express();
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
 
-var mongodbUri = 'mongodb://localhost:27017/playersdb';
+var mongodbUri = (process.env.MONGOLAB_URI ||'mongodb://localhost:27017/playersdb')
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 mongoose.connect(mongooseUri, options);
 var conn = mongoose.connection;
 
-conn.on('error', console.error.bind(console, 'connection error:'));  
+conn.on('error', console.error.bind(console, 'connection error:'));
 
 app.use("/", express.static(path.join(__dirname + "/public")));
 
