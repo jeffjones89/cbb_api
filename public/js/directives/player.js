@@ -10,29 +10,35 @@
           Player.get({id:$routeParams.id}).$promise.then(function(player){
             scope.player = player;
             updateStats(scope);
+            dataVis(scope)
           });
         } else {
           // index
           updateStats(scope);
+          dataVis(scope)
 
         }
         //data visualization for both default and scoped player data...need to abstract this somewhere...better than this.
 
-        var d3Data = [ {title: "TS%", value: scope.TS}, {title: "eFG%", value: scope.eFG}, {title: "Points", value: scope.player.pts},{title: "FGA", value: scope.player.fga}, {title: "3PM", value: scope.player.threePtMade}, {title: "3PA", value: scope.player.threePtAtt} ];
-        var d3DataMax = [scope.ts, scope.eFG, scope.player.pts, scope.player.fga, scope.player.threePtAtt, scope.player.threePtMade]
-        var x = d3.scale.linear().domain([0, d3.max(d3DataMax)]).range([0, 450]);
-        console.log(d3.max(d3DataMax))
-        d3.select(element[0].querySelector(".graph")).selectAll('div').data(d3Data).enter().append("div").
+        function dataVis(scope){
+          var d3Data = [ {title: "Points", value: scope.player.pts}, {title: "TS%", value: scope.TS}, {title: "eFG%", value: scope.eFG}, {title: "FGM", value: scope.player.fgm}, {title: "FGA", value: scope.player.fga}, {title: "3PM", value: scope.player.threePtMade}, {title: "3PA", value: scope.player.threePtAtt} ];
+        //additional array for calculating max/min domain
+          var d3DataMax = [scope.ts, scope.eFG, scope.player.pts, scope.player.fga, scope.player.threePtAtt, scope.player.threePtMade];
+        //setting linear scale for graph
+          var x = d3.scale.linear().domain([d3.min(d3DataMax), d3.max(d3DataMax)]).range([30, 95]);
+        //appending d3 elements to page
+          d3.select(element[0].querySelector(".graph")).selectAll('div').data(d3Data).enter().append("p").
                               classed("statBar", true).
                               style("width", function(d){
-                                return x(d.value) + 'px';
-                              }).text(function(d){ if (d.value > 5){
+                                return x(d.value) + '%';
+                              }).
+                              text(function(d){ if (d.value > 5){
                                 return d.title + ': ' + d.value;
                               }
                             }).
                               style("background", function(d) {
-                                  return "rgb(100, 200, " + (d.value * 50) + ")";
-                                })
+                                  return "rgb(100, 200, " + Math.floor((d.value * 2)) + ")";
+                                });}
         }
     };
   }

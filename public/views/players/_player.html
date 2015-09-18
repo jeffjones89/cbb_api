@@ -1,6 +1,12 @@
-  <div class = "player">
+<div class="row">
+  <div class = "player col-xs-4">
     <a ng-href="/#/players/{{player._id}}"><h2>Name: {{player.name}}</h2></a>
-    <div class="player-image"><img ng-src="{{player.img}}" alt=""></div>
-    <div class="graph"></div>
+      <div class = "graph-container">
 
+      <img class = "player-image" ng-src="{{player.img}}" alt="">
+      <div class="graph">
+
+      </div>
+      </div>
+    </div>
   </div>
