@@ -10,13 +10,14 @@
           Player.get({id:$routeParams.id}).$promise.then(function(player){
             scope.player = player;
             updateStats(scope);
-            dataVis(scope)
+            dataVis(scope);
+            console.log("scope1", scope);
           });
         } else {
           // index
           updateStats(scope);
-          dataVis(scope)
-
+          dataVis(scope);
+          console.log("scope2", scope);
         }
         //data visualization for both default and scoped player data...need to abstract this somewhere...better than this.
 
@@ -52,10 +53,6 @@
     directiveScope.TSA =  (0.44 * Number(player.fta)) + Number(player.fga);
     //true shooting % is a function of total point scored and true shooting attempts
     directiveScope.TS = ((Number(player.pts)/(2 * directiveScope.TSA)) * 100).toFixed(1);
-  }
-
-  function collectData(scope){
-    console.log(this.data)
   }
 
 })();
