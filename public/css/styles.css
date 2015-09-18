@@ -6,6 +6,7 @@
 .player {
   width: 95%;
   margin: auto;
+
 }
 
 .body{
@@ -15,4 +16,8 @@
 img{
   max-width: 250px;
   max-height: 300px;
+}
+
+.statBar{
+  margin: 2px;
 }
