@@ -13,7 +13,7 @@ h1{
 .player {
   width: 95%;
   margin: auto;
-
+  overflow: auto;
 }
 
 .body{
@@ -28,7 +28,7 @@ h1{
 
 .player-image{
   max-width: 15%;
-  max-height: 300px;
+  max-height: 90;
   padding-right: 5px;
   float: left;
   box-shadow: -11px 3px 20px #888888
